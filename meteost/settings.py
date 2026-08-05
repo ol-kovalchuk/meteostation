@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-o*7opq-#au+jnac2%hm-cskyc8960!rip9&dw#ewske3+baa2@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "75.119.150.122"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "75.119.150.122", "10.125.29.216"]
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "meteoinfo",
+    "api",
 ]
 
 MIDDLEWARE = [
@@ -105,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Kyiv"
 
 USE_I18N = True
 

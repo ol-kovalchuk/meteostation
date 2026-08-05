@@ -1,5 +1,15 @@
-from django.views.generic import TemplateView
+from django.shortcuts import render
+
+from api.models import Reading
 
 
-class HomePageView(TemplateView):
-    template_name = "home.html"
+def home(request):
+    reading = Reading.objects.order_by("-created_at").first()
+
+    return render(
+        request,
+        "home.html",
+        {
+            "reading": reading,
+        },
+    )

@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meteostation</title>
-</head>
-<body>
-    <h1>Welcome to the Meteostation!</h1>
-</body>
-</html>
+<h1>Meteo Station</h1>
+
+{% if reading %}
+    <p>Температура: {{ reading.temperature }} °C</p>
+    <p>Вологість: {{ reading.humidity }} %</p>
+    <p>Оновлено: {{ reading.created_at|date:"d.m.Y H:i" }}</p>
+{% else %}
+    <p>No sensor data yet.</p>
+{% endif %}

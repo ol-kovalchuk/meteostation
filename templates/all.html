@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Усі вимірювання</title>
+
+    <style>
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: center;
+        }
+
+        th {
+            background: #f0f0f0;
+        }
+
+        .pagination {
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 8px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Усі вимірювання</h1>
+
+<table>
+
+    <thead>
+        <tr>
+            <th>Температура</th>
+            <th>Вологість</th>
+            <th>Дата</th>
+            <th>Час</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for reading in page_obj %}
+        <tr>
+            <td>{{ reading.temperature }} °C</td>
+            <td>{{ reading.humidity }} %</td>
+            <td>{{ reading.created_at|date:"d.m.Y" }}</td>
+            <td>{{ reading.created_at|date:"H:i:s" }}</td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+
+<div class="pagination">
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">← Попередня</a>
+    {% endif %}
+
+    Сторінка {{ page_obj.number }} із {{ page_obj.paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Наступна →</a>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
